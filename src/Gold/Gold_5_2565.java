@@ -48,12 +48,15 @@ public class Gold_5_2565 {
 	}
 
 	static int recur(int n)	{
-		dp[n]=1;
 
-		for (int i = n+1; i < dp.length; i++) {
+		if(dp[n]==null) {
+			dp[n]=1;
 
-			if(arr[n][1]<arr[i][1])	{
-				dp[n] = Math.max(dp[n], recur(i)+1);
+			for (int i = n+1; i < dp.length; i++) {
+
+				if(arr[n][1]<arr[i][1])	{
+					dp[n] = Math.max(dp[n], recur(i)+1);
+				}
 			}
 		}
 		return dp[n];
