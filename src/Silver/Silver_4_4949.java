@@ -1,0 +1,67 @@
+package Algorithm_2022_01_31;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+
+public class Silver_4_4949 {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		
+		String s;
+		
+		while(true)	{
+			s = br.readLine();
+			
+			if(s.equals("."))	{
+				break;
+			}
+			sb.append(check(s)).append('\n');
+		}
+		System.out.println(sb);
+	}
+	
+	static String check(String s)	{
+		
+		Stack<Character> stack = new Stack<Character>();
+		
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			
+			if(c=='(' || c=='[')	{
+				stack.push(c);
+			}
+			
+			else if(c==']')	{
+				if(stack.empty() || stack.peek() !='[')	{
+					return "no";
+				}
+				else	{
+					stack.pop();
+				}
+			}
+			
+			else if(c==')')	{
+				if(stack.empty() || stack.peek() !='(')	{
+					return "no";
+				}
+				else	{
+					stack.pop();
+				}
+			}
+			
+		}
+		
+		if(stack.empty()) {
+			return "yes";
+		}
+		else	{
+			return "no";
+		}
+	}
+
+}
