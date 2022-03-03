@@ -1,3 +1,5 @@
+package Algorithm_2022_03_03;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,15 +11,13 @@ public class Silver_5_1436 {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int t = Integer.parseInt(br.readLine());
+		int n = Integer.parseInt(br.readLine());
 
 		int num = 666;
 		int cnt = 1;
 
-		while(cnt != t)	{
-
+		while(cnt !=n)	{
 			num++;
-
 			if(String.valueOf(num).contains("666"))	{
 				cnt++;
 			}
